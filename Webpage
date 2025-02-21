@@ -16,11 +16,7 @@
     <!--- This list has a larger font and a specific font family -->
     <ul style="color: purple; font-size: 18px; font-family: 'cursive', fantasy;">
         <li>My parents immigrated from Mexico, and I am classified as Mexican, even though I was born in America and live in Denver, Colorado. I love seeing both sides of the city and the mountains. </li>
-	
     </ul>
-    <!-- Unordered List -->
-    <ul>
-
 
     <!-- Image -->
     <img src="image.JPEG" alt="Description of Image">
@@ -28,13 +24,13 @@
     <li>I love video games, and I find them very fun. I have so many favorite games that I’ve never played, but I’ve seen others' gameplay, like Resident Evil, Until Dawn, Sonic, Detroit: Become Human, Ghost of Tsushima, Spider-Man, The Quarry, and more. Without video games, the world—and media—would be completely different! </li>
     <img src="C:\Users\802910\Desktop\Video games.png" alt="Description of Image">
   
-<li>Back in 2012, I watched a YouTuber that created great content on a channel called Machinima. They also had their own website back then, which is now owned by Warner Bros. Machinima was a popular YouTube channel network in the mid-2000s to early 2010s, known for using video game engines to create animated content. In 2019, it was shut down and acquired by Warner Bros. after facing backlash for exploiting creators with unfair contracts and low pay, leading to many of its channels and videos being removed.My favorite series I watched back then were *The Noob Adventure*, *Sonic for Hire*, *Mob Squad*, *Battlefield Friends*, and others. My favorite Machinima channels they owned were Machinima Realm, Machinima Happy Hour, Machinima Respawn, Machinima Insider, Gaming, etc. </li>
-  <img src="C:\Users\802910\Desktop\images.jpg">
+    <li>Back in 2012, I watched a YouTuber that created great content on a channel called Machinima. They also had their own website back then, which is now owned by Warner Bros. Machinima was a popular YouTube channel network in the mid-2000s to early 2010s, known for using video game engines to create animated content. In 2019, it was shut down and acquired by Warner Bros. after facing backlash for exploiting creators with unfair contracts and low pay, leading to many of its channels and videos being removed.My favorite series I watched back then were *The Noob Adventure*, *Sonic for Hire*, *Mob Squad*, *Battlefield Friends*, and others. My favorite Machinima channels they owned were Machinima Realm, Machinima Happy Hour, Machinima Respawn, Machinima Insider, Gaming, etc. </li>
+    <img src="C:\Users\802910\Desktop\images.jpg">
     <img src="C:\Users\802910\Desktop\Happyhour.webp">
     <img src="C:\Users\802910\Desktop\TNA2.jpg">
     <img src="C:\Users\802910\Desktop\BattleFieldFriends.jpg">
     <img src="C:\Users\802910\Desktop\BestFriends.jpg">
-
+    <img src="C:\Users\802910\Desktop\MachinimaOfficialLogo.png">
 
     <!-- Hyperlink with color and text-decoration properties -->
     <p>Visit <a href="https://example.com" style="color: orange; text-decoration: none;">Example Website</a> for more information.</p>
@@ -51,26 +47,34 @@
 
     <!-- Div element where the text color will change -->
     <div id="text1" class="color-text">Watch the colors change!</div>
+    <!-- Second line of text -->
+    <div id="text2" class="color-text">Now watch this text change too!</div>
 
     <!#################################################################################>
     <!-- JavaScript: Script to make the webpage interactive -->
 
     <script>
         function changeColors() {
-            // Array of colors for the text and background
-            var colors = ['red','blue','gold','white','teal','black','lime','purple','gray','darkseagreen','khaki','tomato','skyblue','sienna','saddlebrown','plum','peachpuff','orange','palegreen','olivedrab','lightpink','pink'];
-
-            // Getting the text element by its ID
-            var element = document.getElementById('text1');
-
-            // Picking a random color from the array for the text
-
-            var randomColor = colors[Math.floor(Math.random() * colors.length)];
-
-            element.style.color = randomColor; // Changing the text color
-
-            var backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+         
+            var colors1 = ['red','blue','gold','white','teal','black','lime','purple','gray','darkseagreen','khaki','tomato','skyblue','sienna','saddlebrown','plum','peachpuff','orange','palegreen','olivedrab','lightpink','pink'];
             
+            
+            var colors2 = ['coral', 'seashell', 'midnightblue', 'turquoise', 'darkslategray', 'springgreen', 'indianred', 'yellowgreen', 'chartreuse', 'darksalmon', 'salmon', 'lightgoldenrodyellow', 'mediumpurple', 'orchid', 'darkorange'];
+
+            
+            var element1 = document.getElementById('text1');
+            var element2 = document.getElementById('text2');
+
+         
+            var randomColor1 = colors1[Math.floor(Math.random() * colors1.length)];
+            element1.style.color = randomColor1;
+
+
+            var randomColor2 = colors2[Math.floor(Math.random() * colors2.length)];
+            element2.style.color = randomColor2;
+
+
+            var backgroundColor = colors1[Math.floor(Math.random() * colors1.length)];
             document.body.style.backgroundColor = backgroundColor; //change background color
         }
     </script>
