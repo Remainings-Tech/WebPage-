@@ -81,31 +81,78 @@
     </script>
 
 
+
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Number Guessing Game</title>
 
-<!##########################################################################>
     <!-- CSS: Styles for the webpage -->
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
             text-align: center;
             margin-top: 50px;
+            color: #333;
         }
+
+        h2 {
+            color: #5b6e5f;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 50px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
         #result {
             margin-top: 20px;
             font-size: 20px;
-            color: blue;
+            font-weight: bold;
+        }
+
+        .close {
+            color: #ff9800; /* Orange for "you're close" */
+        }
+
+        .correct {
+            color: #4CAF50; /* Green for correct guess */
+        }
+
+        .low, .high {
+            color: #f44336; /* Red for low or high guesses */
         }
     </style>
 </head>
 <body>
 
-<!##########################################################################>
     <!-- HTML: Structure and content of the webpage -->
-
     <h2>Guess the Number Game</h2>
     <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
 
@@ -116,27 +163,124 @@
     <!-- Paragraph where the result will be displayed -->
     <p id="result"></p>
 
-<!##########################################################################>
     <!-- JavaScript: Script for the game's functionality -->
-
     <script>
         // Generate a random number between 1 and 100
         var secretNumber = Math.floor(Math.random() * 100) + 1;
-	console.log(secretNumber) //for debugging purposes. press ctrl+shift+j to see this!
-
+        console.log(secretNumber); // for debugging purposes. press ctrl+shift+j to see this!
 
         function checkGuess() {
-            // Retrieve the user's guess
-            var userGuess = document.getElementById('guess').value;
+            // Retrieve and convert the user's guess to a number
+            var userGuess = parseInt(document.getElementById('guess').value, 10);
+
+            // Validate the input value
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                document.getElementById('result').innerText = 'Please enter a valid number between 1 and 100!';
+                document.getElementById('result').className = ''; // Reset any previous styling
+                return;
+            }
 
             // Compare the guess to the secret number
-            if (userGuess == secretNumber) {
+            if (userGuess === secretNumber) {
                 document.getElementById('result').innerText = 'Congratulations! You guessed it!';
+                document.getElementById('result').className = 'correct';
+            } else if (Math.abs(userGuess - secretNumber) <= 5) {
+                document.getElementById('result').innerText = 'You\'re really close! Keep going!';
+                document.getElementById('result').className = 'close';
             } else if (userGuess < secretNumber) {
                 document.getElementById('result').innerText = 'Too low. Try again!';
+                document.getElementById('result').className = 'low';
             } else {
                 document.getElementById('result').innerText = 'Too high. Try again!';
+                document.getElementById('result').className = 'high';
             }
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Adventure Game</title>
+    <style>
+        #gameImage {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HTML: Game content -->
+
+    <h2 id="roomTitle">Room Title</h2>
+    <img src="C:\Users\802910\Desktop\start-room.jpg">
+    <p id="roomDescription">Room Description</p>
+
+    <!-- User input -->
+    <input type="text" id="userInput" placeholder="Type your command">
+    <button onclick="processCommand()">Go</button>
+
+    <!-- JavaScript: Game logic -->
+
+    <script>
+        // Game rooms
+        var rooms = {
+            'start': {
+                'title': 'The Mysterious Dungeon',
+                'description': 'You are in a dark, cold dungeon. There are doors to the north and east.',
+                'image': "C:\Users\802910\Desktop\start-room.jpg",
+                'directions': {
+                    'north': 'library',
+                    'east': 'laboratory'
+                }
+            },
+            'library': {
+                'title': 'The Ancient Library',
+                'description': 'You find yourself surrounded by dusty books. There\'s a door to the south.',
+                'image': 'library.jpg',
+                'directions': {
+                    'south': 'start'
+                }
+            },
+            'laboratory': {
+                'title': 'The Alchemist\'s Laboratory',
+                'description': 'Strange potions bubble on the stove. There\'s a door to the west.',
+                'image': 'laboratory.jpg',
+                'directions': {
+                    'west': 'start'
+                }
+            }
+        };
+
+        var currentRoom = 'start'; // Starting room
+        updateRoom();
+
+        function processCommand() {
+            var command = document.getElementById('userInput').value.toLowerCase();
+            var directions = rooms[currentRoom].directions;
+
+            if (directions[command]) {
+                currentRoom = directions[command];
+                updateRoom();
+            } else {
+                alert('You cannot go that way.');
+            }
+
+            document.getElementById('userInput').value = ''; // Clear input field
+        }
+
+        function updateRoom() {
+            var room = rooms[currentRoom];
+            document.getElementById('roomTitle').innerText = room.title;
+            document.getElementById('roomDescription').innerText = room.description;
+            document.getElementById('gameImage').src = room.image;
         }
     </script>
 
