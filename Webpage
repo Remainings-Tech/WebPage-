@@ -221,7 +221,7 @@
     <!-- HTML: Game content -->
 
     <h2 id="roomTitle">Room Title</h2>
-    <img src="C:\Users\802910\Desktop\start-room.jpg">
+    <img id="gameImage" src="C:\Users\802910\Desktop\start-room.jpg">
     <p id="roomDescription">Room Description</p>
 
     <!-- User input -->
@@ -236,7 +236,7 @@
             'start': {
                 'title': 'The Mysterious Dungeon',
                 'description': 'You are in a dark, cold dungeon. There are doors to the north and east.',
-                'image': "C:\Users\802910\Desktop\start-room.jpg",
+                'image': "C:\\Users\\802910\\Desktop\\start-room.jpg">
                 'directions': {
                     'north': 'library',
                     'east': 'laboratory'
@@ -245,18 +245,80 @@
             'library': {
                 'title': 'The Ancient Library',
                 'description': 'You find yourself surrounded by dusty books. There\'s a door to the south.',
-                'image': 'library.jpg',
+                'image': "C:\Users\802910\Desktop\library.jpg">
                 'directions': {
-                    'south': 'start'
+                    'south': 'start',
+                    'north': 'treasureRoom'
                 }
             },
             'laboratory': {
                 'title': 'The Alchemist\'s Laboratory',
                 'description': 'Strange potions bubble on the stove. There\'s a door to the west.',
-                'image': 'laboratory.jpg',
+                'image': "C:\Users\802910\Desktop\laboratory.jpg">
                 'directions': {
-                    'west': 'start'
+                    'west': 'start',
+                    'north': 'cellar'
                 }
+            },
+            'treasureRoom': {
+                'title': ' You are in a treesure room
+                'description': 'You have found a room filled with gold and jewels! There\'s a door to the south.',
+                'image': "C:\Users\802910\Desktop\treasure room.jpg",
+                'directions': {
+                    'south': 'library',
+                    'east': 'armory'
+                }
+            },
+            'cellar': {
+                'title': 'The Cellar',
+                'description': 'The cellar is damp and filled with old crates. There\'s a door to the south.',
+                'image': 'cellar.jpg',
+                'directions': {
+                    'south': 'laboratory',
+                    'east': 'hallway'
+                }
+            },
+            'armory': {
+                'title': 'The Armory',
+                'description': 'You are surrounded by weapons and armor. There is a door to the west.',
+                'image': 'armory.jpg',
+                'directions': {
+                    'west': 'treasureRoom',
+                    'north': 'castleHall'
+                }
+            },
+            'hallway': {
+                'title': 'The Long Hallway',
+                'description': 'A long hallway with flickering lights. You see a door to the north and west.',
+                'image': 'hallway.jpg',
+                'directions': {
+                    'west': 'cellar',
+                    'north': 'castleThroneRoom'
+                }
+            },
+            'castleHall': {
+                'title': 'The Castle Hall',
+                'description': 'You are in a grand hall, with statues lining the walls. A door to the south leads back.',
+                'image': 'castleHall.jpg',
+                'directions': {
+                    'south': 'armory',
+                    'north': 'throneRoom'
+                }
+            },
+            'castleThroneRoom': {
+                'title': 'The Throne Room',
+                'description': 'You have reached the throne room, the heart of the castle. There\'s a door to the south.',
+                'image': 'castleThroneRoom.jpg',
+                'directions': {
+                    'south': 'hallway',
+                    'east': 'exit'
+                }
+            },
+            'exit': {
+                'title': 'The Exit',
+                'description': 'Congratulations! You\'ve made it out of the castle. You win!',
+                'image': 'exit.jpg',
+                'directions': {}
             }
         };
 
